@@ -18,7 +18,7 @@ This first transforms the initial problem into a new problem with easily identif
 Converts problem from general form to standard form before passing to solve (standard form).
 
 ## purify
-Converts an approximate solution with "small enough" error into an exact solution. For details see lemmas 1 and 2 of [An application of the Khachian-Shor algorithm to a class of linear complementarity problems](https://cowles.yale.edu/sites/default/files/files/pub/d05/d0549.pdf) (Adler, McClean, & Provan, 1980, pp. 6-7).
+Converts an approximate solution with "small enough" error into an exact solution. For details see lemmas 1 and 2 of [An application of the Khachian-Shor algorithm to a class of linear complementarity problems](https://cowles.yale.edu/sites/default/files/files/pub/d05/d0549.pdf) (Adler, McLean, & Provan, 1980, pp. 6-7).
 
 # Notes
 Although the linked papers assume integral data when defining L, it's not hard to show the complexity stays in the same class for rational data. 
