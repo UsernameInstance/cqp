@@ -9,7 +9,7 @@ The basis of this algorithm is [A Simple Polynomial-Time Algorithm for Convex Qu
 
 For the rational data type the algorithm was altered in order to reduce growth of rational number numerator/denominator via considering perturbed KKT conditions and using continued fractions to find simple rational numbers in given intervals. 
 
-For the floating implementation the algorithm was altered in order to identify primal variables near the boundary of the feasible region contributing to ill conditioning. After variables are identified the appropriate matrix block is altered in an attempt to reduce the condition number.
+For the floating point implementation the algorithm was altered in order to identify primal variables near the boundary of the feasible region contributing to ill conditioning. After variables are identified the appropriate matrix block is altered in an attempt to reduce the condition number.
 
 ## solve (standard form)
 This first transforms the initial problem into a new problem with easily identifiable interior point meeting the requirements of the homotopy_algorithm, before then calling said algorithm. For details see pages 22-28 of [An O(n^3L) Interior Point Algorithm for Convex Quadratic Programming](https://apps.dtic.mil/dtic/tr/fulltext/u2/a186001.pdf) (Monteiro & Adler, 1987) .
