@@ -12,15 +12,15 @@ For the rational data type the algorithm was altered in order to reduce growth o
 For the floating point implementation the algorithm was altered in order to identify primal variables near the boundary of the feasible region contributing to ill conditioning. After variables are identified the appropriate matrix block is altered in an attempt to reduce the condition number.
 
 ## solve (standard form)
-This first transforms the initial problem into a new problem with easily identifiable interior point meeting the requirements of the homotopy_algorithm, before then calling said algorithm. For details see pages 22-28 of [An O(n^3L) Interior Point Algorithm for Convex Quadratic Programming](https://apps.dtic.mil/dtic/tr/fulltext/u2/a186001.pdf) (Monteiro & Adler, 1987) .
+This first transforms the initial problem into a new problem with easily identifiable interior point meeting the requirements of the homotopy_algorithm, before then calling said algorithm. For details see pages 22-28 of [An O(n^3L) Interior Point Algorithm for Convex Quadratic Programming](https://apps.dtic.mil/sti/pdfs/ADA186001.pdf) (Monteiro & Adler, 1987) .
 
 ## solve (general form)
 Converts problem from general form to standard form before passing to solve (standard form).
 
 ## purify
-Converts an approximate solution with "small enough" error into an exact solution. For details see lemmas 1 and 2 of [An application of the Khachian-Shor algorithm to a class of linear complementarity problems](https://cowles.yale.edu/sites/default/files/files/pub/d05/d0549.pdf) (Adler, McLean, & Provan, 1980, pp. 6-7).
+Converts an approximate solution with "small enough" error into an exact solution. For details see lemmas 1 and 2 of [An application of the Khachian-Shor algorithm to a class of linear complementarity problems](https://www.researchgate.net/publication/4860216_An_Application_of_the_Khachian-Shor_Algorithm_to_a_Class_of_Linear_Complementary_Problems) (Adler, McLean, & Provan, 1980, pp. 6-7).
 
 # Notes
 Although the linked papers assume integral data when defining L, it's not hard to show the complexity stays in the same class for rational data. 
 
-The implicit constant in the big O notation, after the transformation from solve(), seems to be quite big. The transformation itself seems to cause a lot of slowdown probably due to the large sizes (as in length of representation) of the numbers involved. This could be improved with good error bounds in order to help gain tighter bounds on the location of an optimal solution. Although these bounds exist, for example see [Error bounds for monotone linear complementarity problems](https://apps.dtic.mil/dtic/tr/fulltext/u2/a160975.pdf), computing them seems to be painful as you need to deal with algebraic numbers appearing in matrix square roots, a lot of painful computation would just yield a huge constant multiplier for the residual, which I may due anyway.
+The implicit constant in the big O notation, after the transformation from solve(), seems to be quite big. The transformation itself seems to cause a lot of slowdown probably due to the large sizes (as in length of representation) of the numbers involved. This could be improved with good error bounds in order to help gain tighter bounds on the location of an optimal solution. Although these bounds exist, for example see [Error bounds for monotone linear complementarity problems](https://apps.dtic.mil/sti/tr/pdf/ADA160975.pdf) (O. L. Mangasarian & T. -H. Shiau, 1985), computing them seems to be painful as you need to deal with algebraic numbers appearing in matrix square roots, a lot of painful computation would just yield a huge constant multiplier for the residual, which I may due anyway.
